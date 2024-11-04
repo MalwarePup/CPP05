@@ -14,16 +14,14 @@ Bureaucrat::Bureaucrat(const std::string &name, unsigned int grade) :
 
 Bureaucrat::Bureaucrat(const Bureaucrat &b)
 {
-	_name = b.getName();
-	_grade = b.getGrade();
+	Bureaucrat(b.getName(), b.getGrade());
 }
 
-Bureaucrat & Bureaucrat::operator=(const Bureaucrat &b)
+Bureaucrat &Bureaucrat::operator=(const Bureaucrat &b)
 {
 	if (this != &b)
 	{
-		_name = b.getName();
-		_grade = b.getGrade();
+		*this = Bureaucrat(b.getName(), b.getGrade());
 	}
 	return *this;
 }
