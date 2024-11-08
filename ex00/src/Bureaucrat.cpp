@@ -12,16 +12,16 @@ Bureaucrat::Bureaucrat(const std::string &name, unsigned int grade) :
 	std::cout << "Bureaucrat " << _name << " created." << std::endl;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat &b)
+Bureaucrat::Bureaucrat(const Bureaucrat &b) :
+	_name(b.getName()), _grade(b.getGrade())
 {
-	Bureaucrat(b.getName(), b.getGrade());
 }
 
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat &b)
 {
 	if (this != &b)
 	{
-		*this = Bureaucrat(b.getName(), b.getGrade());
+		*this = Bureaucrat(b);
 	}
 	return *this;
 }
@@ -36,14 +36,14 @@ unsigned int Bureaucrat::getGrade() const
 	return _grade;
 }
 
-const char *GradeTooLowException::what() const throw()
-{
-	return "Grade is too low.";
-}
-
-const char * GradeTooHighException::what() const throw()
+const char *GradeTooHighException::what() const throw()
 {
 	return "Grade is too high.";
+}
+
+const char * GradeTooLowException::what() const throw()
+{
+	return "Grade is too low.";
 }
 
 std::ostream &operator<<(std::ostream &out, const Bureaucrat &b)

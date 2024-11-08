@@ -44,15 +44,5 @@ int main()
 		std::cerr << e.what() << std::endl;
 	}
 
-	try
-	{
-		Bureaucrat f("Roy", -42);
-		std::cout << f << std::endl;
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
-
 	return 0;
 }
