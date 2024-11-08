@@ -7,6 +7,16 @@ int main()
 	{
 		Bureaucrat b("John", 1);
 		std::cout << b << std::endl;
+		for (int i = 0; i < 10; i++)
+		{
+			b.decrementGrade();
+			std::cout << b << std::endl;
+		}
+		for (int i = 0; i < 11; i++)
+		{
+			b.incrementGrade();
+			std::cout << b << std::endl;
+		}
 	}
 	catch (std::exception &e)
 	{
@@ -16,6 +26,8 @@ int main()
 	try
 	{
 		Bureaucrat c("Jane", 150);
+		std::cout << c << std::endl;
+		c.decrementGrade();
 		std::cout << c << std::endl;
 	}
 	catch(const std::exception& e)
